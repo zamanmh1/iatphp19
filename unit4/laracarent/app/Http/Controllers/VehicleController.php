@@ -15,7 +15,8 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        //
+        $vehicles = Vehicle::all()->toArray();
+        return view('vehicles.index', compact('vehicles'));
     }
 
     /**
@@ -66,7 +67,7 @@ class VehicleController extends Controller
     $vehicle->reg_no = $request->input('reg_no');
     $vehicle->description = $request->input('description');
     $vehicle->brand = $request->input('brand');
-    $vehicle->daily_rate = $rate->input('daily_rate');
+    $vehicle->dailyrate = $request->input('daily_rate');
     $vehicle->created_at = now();
     $vehicle -> image = $fileNameToStore;
 

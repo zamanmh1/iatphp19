@@ -15,6 +15,7 @@ class CreateVehiclesTable extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('reg_no', 10);
             $table->enum('category', ['car', 'truck'])->default('car');
             $table->string('brand', 30)->nullable();
             $table->decimal('dailyrate', 6, 2)->default(9.99);
